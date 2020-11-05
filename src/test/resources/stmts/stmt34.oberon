@@ -1,16 +1,24 @@
 MODULE SimpleModule;
   
 VAR
-  a, b: INTEGER;
+  a : INTEGER;
 BEGIN
   readInt(a);
-  readInt(b);
-  IF(a >= b) THEN
-    write(a)
+  IF(a < 10) THEN
+    IF(a = 2) THEN
+      write(a)
+    ELSIF(a = 3) THEN
+      write(a)
+    ELSIF(a = 5) THEN
+      write(a)
+    ELSIF(a = 7) THEN
+      write(a)
+    ELSE
+      write(1)
+    END
   ELSE
-    write(b)
+    write(0)
   END
-
 END
 
 END SimpleModule.

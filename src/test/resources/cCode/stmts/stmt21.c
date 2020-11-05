@@ -2,14 +2,27 @@
 #include <stdbool.h>
 
 void main() {
-  int a, b;
+  int a;
 
   scanf("%d", &a);
-  scanf("%d", &b);
-  if (a >= b) {
-    printf("%d\n", a);
+  if (a < 10) {
+    if (a == 2) {
+      printf("%d\n", a);
+    }
+    else if (a == 3) {
+      printf("%d\n", a);
+    }
+    else if (a == 5) {
+      printf("%d\n", a);
+    }
+    else if (a == 7) {
+      printf("%d\n", a);
+    }
+    else {
+      printf("%d\n", 1);
+    }
   }
   else {
-    printf("%d\n", b);
+    printf("%d\n", 0);
 }
 }
