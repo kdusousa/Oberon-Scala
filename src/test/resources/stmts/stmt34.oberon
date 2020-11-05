@@ -1,0 +1,16 @@
+MODULE SimpleModule;
+  
+VAR
+  a, b: INTEGER;
+BEGIN
+  readInt(a);
+  readInt(b);
+  IF(a >= b) THEN
+    write(a)
+  ELSE
+    write(b)
+  END
+
+END
+
+END SimpleModule.
