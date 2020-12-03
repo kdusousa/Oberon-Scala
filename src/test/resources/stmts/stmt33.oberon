@@ -1,18 +1,16 @@
-MODULE SimpleModule;
-  
-VAR
-  x, y, gt : INTEGER;
-BEGIN
-  readInt(x);
-  readInt(y);
-  IF(x > y) THEN
-    gt := 2
-  ELSIF(x < y) THEN
-    gt := 1
-  ELSE
-    gt := 0
-  END;
-  write(gt)
-END
+MODULE UserTypeModule;
 
-END SimpleModule.
+TYPE
+  tysize = ARRAY 5 OF INTEGER
+  
+  shoes = RECORD
+    id: INTEGER;
+    sizes: tysize;
+    price: INTEGER;
+    stock: INTEGER;
+    limited: BOOLEAN
+  END
+
+  shoes_array = ARRAY 50 OF shoes
+
+END UserTypeModule.

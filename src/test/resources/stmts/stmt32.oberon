@@ -1,21 +1,22 @@
-MODULE SimpleModule;
+MODULE UserTypeModule;
+
+TYPE
+  type1 = ARRAY 10 OF INTEGER
   
-VAR
-  a, b, c : INTEGER;
-BEGIN
-  readInt(a);
-  readInt(b);
-  readInt(c);
-  IF(a > b) THEN
-    write(a)
-  ELSIF(b > a) THEN
-    write(b)
-  ELSIF(a > c) THEN
-    write(c)
-  ELSE
-    write(c)
+  type2 = RECORD 
+    lista: type1;
+    inteiro: INTEGER
+  END
+  
+  type3 = RECORD
+    mylist: type2;
+    age: INTEGER;
+    check: BOOLEAN;
+    kleber, bolo: type1
   END
 
-END
+  type4 = RECORD
+    v1, v2: INTEGER
+  END
 
-END SimpleModule.
+END UserTypeModule.

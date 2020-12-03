@@ -64,7 +64,9 @@ class TypeChecker extends OberonVisitorAdapter {
     module.constants.map(c => env.setGlobalVariable(c.name, c.exp.accept(expVisitor).get))
     module.variables.map(v => env.setGlobalVariable(v.name, v.variableType))
     module.procedures.map(p => env.declareProcedure(p))
-    module.userTypes.map(u => env.addUserType(u))
+    module.userTypes.map(u => env.declareUserDefinedType(u)) //added G04
+
+
 
     // TODO: check if the procedures are well typed.
 
