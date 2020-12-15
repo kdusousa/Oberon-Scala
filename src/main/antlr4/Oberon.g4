@@ -52,14 +52,18 @@ expression
  | intValue                                                                               #IntegerValue
  | boolValue                                                                              #BooleanValue 
  | name = Id                                                                              #Variable
- | name = Id '(' arguments? ')'                                                           #FunctionCall       
+ | name = Id '(' arguments? ')'                                                           #FunctionCall
+ | exp = expression '.' name = Id                                                         #FieldAccess
+ | arrayBase = expression '[' index = expression ']'                                      #ArraySubscript
  | left = expression opr = ('=' | '#' | '<' | '<=' | '>' | '>=')  right = expression      #RelExpression 
  | left = expression opr = ('*' | '/' | '&&') right = expression                          #MultExpression  
  | left = expression opr = ('+' | '-' | '||') right = expression                          #AddExpression
+
  ;
 
 statement
  : var = Id ':=' exp = expression                                                                                             #AssignmentStmt
+ | des = designator ':=' exp = expression                                                                                     #EAssignmentStmt
  | stmt += statement (';' stmt += statement)+                                                                                 #SequenceStmt
  | 'readInt'  '(' var = Id ')'                                                                                                #ReadIntStmt
  | 'write' '(' expression ')'                                                                                                 #WriteStmt
@@ -73,6 +77,12 @@ statement
  | 'RETURN' exp = expression                                                                                                  #ReturnStmt
  | 'CASE' exp = expression 'OF' cases += caseAlternative ('|' cases += caseAlternative)* ('ELSE' elseStmt= statement)? 'END'  #CaseStmt
  ;
+
+ designator
+  : var = Id                                                          #VarAssignment
+  | array = expression '[' elem = expression ']'                      #ArrayAssignment
+  | record = expression '.' name = Id                                 #RecordAssignment
+  ;
 
 caseAlternative
  : cond = expression ':' stmt = statement                       #SimpleCase
